@@ -33,7 +33,7 @@ const RegisterModal: FC<RegisterModalProps> = ({}) => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
     axios
-      .post("api/register", data)
+      .post("/api/register", data)
       .then(() => registerModal.onClose())
       .catch((err) => {
         toast.error("Something went wrong");
