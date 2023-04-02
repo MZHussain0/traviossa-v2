@@ -4,10 +4,10 @@ import Container from "../Container";
 import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
-import { User } from "@prisma/client";
+import { safeUser } from "@/app/types";
 
 type Props = {
-  currentUser?: User | null;
+  currentUser?: safeUser | null;
 };
 
 const Navbar = ({ currentUser }: Props) => {
