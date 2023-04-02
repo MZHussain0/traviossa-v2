@@ -14,7 +14,7 @@ const Search = (props: Props) => {
         </div>
         <div className="text-sm pl-6 pr-2 text-gray-400 flex flex-row items-center gap-3">
           <div className="hidden sm:block text-xs">Add Guests</div>
-          <div className="p-1 bg-slate-700 rounded-full text-white">
+          <div className="p-1 bg-purple-500 rounded-full text-white">
             <BiSearch size={14} />
           </div>
         </div>
