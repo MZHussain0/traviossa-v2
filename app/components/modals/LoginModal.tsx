@@ -1,7 +1,6 @@
 ﻿"use client";
 import { FC } from "react";
 import { signIn } from "next-auth/react";
-import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
@@ -54,6 +53,11 @@ const LoginModal: FC<LoginModalProps> = ({}) => {
     });
   };
 
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome Back!" subtitle="Login to your account" />
@@ -95,11 +99,11 @@ const LoginModal: FC<LoginModalProps> = ({}) => {
       />
       <div className="text-neutral-300 text-center mt-4 font-light">
         <div className="flex justify-center items-center gap-2">
-          <div className="">Already have an account?</div>
+          <div className="">First time using Traviossa?</div>
           <div
-            onClick={loginModal.onClose}
+            onClick={toggle}
             className="text-white font-medium cursor-pointer hover:underline">
-            Log in
+            Register here!
           </div>
         </div>
       </div>
