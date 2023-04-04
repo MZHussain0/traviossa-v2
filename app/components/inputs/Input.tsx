@@ -39,7 +39,7 @@ const Input: FC<InputProps> = ({
         placeholder=" "
         type={type}
         className={`peer w-full p-4 pt-6 font-light bg-slate-600 border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed
-        ${formatPrice ? "pl-9" : "pl-4"}
+        ${formatPrice ? "pl-9 text-violet-100 font-semibold" : "pl-4"}
         ${
           errors[id]
             ? "border-rose-500 focus:border-rose-500"
