@@ -72,8 +72,7 @@ const ListingClient: FC<ListingClientProps> = ({
       .then(() => {
         toast.success("Listing Reserved!");
         setDateRange(initialDateRange);
-        // redirect to /trips
-        router.refresh();
+        router.push("/trips");
       })
       .catch(() => {
         toast.error("something went wrong");

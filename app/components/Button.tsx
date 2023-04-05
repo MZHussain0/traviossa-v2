@@ -23,7 +23,7 @@ const Button: FC<ButtonProps> = ({
     <button
       onClick={onClicK}
       disabled={disabled}
-      className={`relative text-white disabled:opacity-70 disabled:cursor-not-allowed rounded-lg hover:opacity-80 transition w-full 
+      className={`relative text-white font-semibold disabled:opacity-70 disabled:cursor-not-allowed rounded-lg hover:opacity-80 transition w-full 
       ${outline ? "bg-slate-700" : "bg-purple-500"}
       ${outline ? "border-white" : "border-purple-500"}
       ${
