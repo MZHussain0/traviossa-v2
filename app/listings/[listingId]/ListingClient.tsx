@@ -33,7 +33,7 @@ const ListingClient: FC<ListingClientProps> = ({
 }) => {
   const category = useMemo(() => {
     return categories.find((item) => item.label === listing.category);
-  }, [listing]);
+  }, [listing.category]);
 
   const loginModal = useLoginModal();
   const router = useRouter();
@@ -76,7 +76,7 @@ const ListingClient: FC<ListingClientProps> = ({
         // redirect to /trips
         router.refresh();
       })
-      .catch((err) => {
+      .catch(() => {
         toast.error("something went wrong");
       })
       .finally(() => {
