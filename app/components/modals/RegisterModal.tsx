@@ -38,6 +38,7 @@ const RegisterModal: FC<RegisterModalProps> = ({}) => {
     axios
       .post("/api/register", data)
       .then(() => {
+        toast.success("success! ");
         loginModal.onOpen();
         registerModal.onClose();
       })
