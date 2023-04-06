@@ -8,14 +8,18 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import ListingCard from "../components/listings/ListingCard";
 
-interface TripsClientProps {
+interface ReservationClientProps {
   reservations: safeReservations[];
   currentUser?: safeUser | null;
 }
 
-const TripsClient: FC<TripsClientProps> = ({ reservations, currentUser }) => {
+const ReservationClient: FC<ReservationClientProps> = ({
+  reservations,
+  currentUser,
+}) => {
   const router = useRouter();
   const [deletingId, setDeletingId] = useState("");
+
   const onCancel = useCallback(
     (id: string) => {
       setDeletingId(id);
@@ -26,8 +30,8 @@ const TripsClient: FC<TripsClientProps> = ({ reservations, currentUser }) => {
           toast.success("cancelled successfully");
           router.refresh();
         })
-        .catch((error) => {
-          toast.error(error?.response?.data?.error);
+        .catch(() => {
+          toast.error("something went wrong.");
         })
         .finally(() => {
           setDeletingId("");
@@ -35,13 +39,9 @@ const TripsClient: FC<TripsClientProps> = ({ reservations, currentUser }) => {
     },
     [router]
   );
-
   return (
     <Container>
-      <Heading
-        title="Trips"
-        subtitle="Where you've been and where you are going"
-      />
+      <Heading title="Reservations" subtitle="Bookings on your properties" />
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
         {reservations.map((reservation) => (
           <ListingCard
@@ -51,7 +51,7 @@ const TripsClient: FC<TripsClientProps> = ({ reservations, currentUser }) => {
             actionId={reservation.id}
             onAction={onCancel}
             disabled={deletingId === reservation.id}
-            actionLabel="Cancel Reservation"
+            actionLabel="Cancel guest reservation"
             currentUser={currentUser}
           />
         ))}
@@ -60,4 +60,4 @@ const TripsClient: FC<TripsClientProps> = ({ reservations, currentUser }) => {
   );
 };
 
-export default TripsClient;
+export default ReservationClient;
